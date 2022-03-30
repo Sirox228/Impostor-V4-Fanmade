@@ -69,6 +69,16 @@ class PlayState extends MusicBeatState
 	var mcontrols:Mobilecontrols; 
 	#end
 
+        public static var noteTypeList:Array<String> = //Used for backwards compatibility with 0.1 - 0.3.2 charts, though, you should add your hardcoded custom note types here too.
+	[
+		'',
+		'Alt Animation',
+		'Hey!',
+		'Hurt Note',
+		'GF Sing',
+		'No Animation'
+	];
+
 	public static var ratingStuff:Array<Dynamic> = [
 		['Amogus', 0.2], //From 0% to 19%
 		['Shit', 0.4], //From 20% to 39%
@@ -1979,7 +1989,7 @@ class PlayState extends MusicBeatState
 					swagNote.mustPress = gottaHitNote;
 					swagNote.sustainLength = songNotes[2];
 					swagNote.noteType = songNotes[3];
-					if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
+					if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
 					swagNote.scrollFactor.set();
 
 					var susLength:Float = swagNote.sustainLength;
